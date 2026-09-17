@@ -139,20 +139,14 @@
 <body>
   <script>
     // Open in new tab immediately before page content loads
-    var params = new URLSearchParams(window.location.search);
-    var projectId = params.get('projectId');
-    if (projectId) {
-      var targetUrl = 'https://books.zoho.com/app/927118528#/timesheet/projects/' + encodeURIComponent(projectId);
+      var targetUrl = 'https://projects.zoho.com/portal/baystate#zp/collaboration/calendar';
       window.open(targetUrl, '_blank', 'noopener');
-    }
   </script>
 
   <div class="card" id="card"></div>
 
 <script>
   (function () {
-    var params = new URLSearchParams(window.location.search);
-    var projectId = params.get('projectId');
     var card = document.getElementById('card');
 
     function escapeHtml(str) {
@@ -161,18 +155,11 @@
       return div.innerHTML;
     }
 
-    if (!projectId) {
-      card.innerHTML =
-        '<p class="error">No projectId was found in the URL. Add ?projectId=YOUR_ID to the link and try again.</p>';
-      return;
-    }
-
     card.innerHTML =
-      '<p class="description">Access invoices, payments, expenses, and other financial information for this project.</p>' +
-      '<button id="openBtn" type="button">Open Project Finance</button>' +
-      '<p class="redirect-note">You\'ll be redirected to Zoho Books</p>';
+      '<button id="openBtn" type="button">Open Project Calendar</button>' +
+      '<p class="redirect-note">You\'ll be redirected to Zoho Projects</p>';
 
-      var targetUrl = 'https://books.zoho.com/app/927118528#/timesheet/projects/' + encodeURIComponent(projectId);
+      var targetUrl = 'https://projects.zoho.com/portal/baystate#zp/collaboration/calendar';
     document.getElementById('openBtn').addEventListener('click', function () {
       window.open(targetUrl, '_blank', 'noopener');
     });
